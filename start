@@ -1,0 +1,22 @@
+#!/bin/bash
+set -e
+
+# Wait for postgres
+echo "Waiting for PostgreSQL..."
+sleep 5
+
+# Make migrations if there are changes
+echo "Making migrations..."
+python manage.py makemigrations
+
+# Apply database migrations
+echo "Applying database migrations..."
+python manage.py migrate
+
+# Collect static files
+echo "Collecting static files..."
+python manage.py collectstatic --noinput
+
+# Start Gunicorn server
+echo "Starting Gunicorn server..."
+gunicorn --timeout 600 --workers 3 --bind 0.0.0.0:8000 food_chat.wsgi:application
