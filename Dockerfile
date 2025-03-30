@@ -15,5 +15,7 @@ RUN chmod +x /app/start
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
+EXPOSE 8000
+
 # Use bash to run the start script
 CMD ["bash", "/app/start"]

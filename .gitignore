@@ -4,3 +4,9 @@ db.sqlite3
 .env
 * text=auto
 *.sh text eol=lf
+terraform.tfstate
+terraform.tfvars
+tfplan
+.terraform.lock.hcl
+.terraform.tfstate.lock.info
+infra/terraform.tfstate.backup

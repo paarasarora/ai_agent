@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import  GenerateConversationView
+from .views import  GenerateConversationView,health_check
 
 app_name = "chatbot"
 
@@ -13,5 +13,6 @@ urlpatterns = [
     path('message/', views.send_message, name='send_message'),
     path('history/<int:conversation_id>/', views.conversation_history, name='conversation_history'),
     path('generate/', GenerateConversationView.as_view(), name='generate-conversation'),
+    path('health/', health_check, name='health_check'),
     path('', views.conversations_list, name='conversations_list'),
 ]

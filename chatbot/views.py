@@ -96,3 +96,7 @@ def conversation_history(request, conversation_id):
     
     except Conversation.DoesNotExist:
         return render(request, 'error.html', {'error': 'Conversation not found'})
+
+
+def health_check(request):
+    return JsonResponse({"status": "ok"}, status=200)

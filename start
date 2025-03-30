@@ -1,10 +1,6 @@
 #!/bin/bash
 set -e
 
-# Wait for postgres
-echo "Waiting for PostgreSQL..."
-sleep 5
-
 # Make migrations if there are changes
 echo "Making migrations..."
 python manage.py makemigrations
