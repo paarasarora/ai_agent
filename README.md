@@ -115,8 +115,6 @@ The deployment.sh script will:
 
 🚀 Deploy the image to ECS Fargate
 
-🚀 Apply the infrastructure configuration using Terraform
-
 
 
 
