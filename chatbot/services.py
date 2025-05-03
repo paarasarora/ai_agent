@@ -14,6 +14,7 @@ Generate a response with your top 3 favorite foods.
 Be diverse, creative, and realistic in your choices. 
 Be conversational, engaging, and helpful.
 Include whether these choices make you vegetarian, vegan, or neither. 
+
 Format your response as JSON with fields:
 - foods (array of 3 unique strings)
 - is_vegetarian (boolean)
@@ -262,6 +263,7 @@ class OpenAIService:
                     conversation.save()
                     
                     # Save extracted food preferences
+                    #TODO can add bulk creation
                     existing_foods = FoodPreference.objects.filter(conversation=conversation)
                     if not existing_foods.exists():
                         for i, food in enumerate(foods[:3]):

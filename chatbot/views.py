@@ -42,7 +42,7 @@ openai_service = OpenAIService()
 
 def conversations_list(request):
     """Show a list of all conversations"""
-    conversations = Conversation.objects.all().order_by('-created_at')  # Assuming you have a created_at field
+    conversations = Conversation.objects.all().order_by('-created_at') 
     return render(request, 'conversations_list.html', {'conversations': conversations})
 
 # View for the chat interface page
@@ -85,7 +85,7 @@ def conversation_history(request, conversation_id):
         messages = Message.objects.filter(conversation=conversation).order_by('created_at')
         
         food_preferences = conversation.food_preferences.all().order_by('rank')
-        
+    
         context = {
             'conversation': conversation,
             'messages': messages,
